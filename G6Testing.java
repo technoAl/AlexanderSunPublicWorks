@@ -3,8 +3,24 @@ import java.io.*;
 public class G6Testing {
 	public static void main(String[] args) {
 		boolean[] GoodNumbers = findGoodNumbers(1000000);
+		int lessThenHundred = 0;
+		int lessThenThousand = 0;
+		int lessThenTenThousand = 0;
+		int lessThenHundredThousand = 0;
+		int lessThenMillion = 0;
 		for(int i = 0; i < GoodNumbers.length; i++) {
 			System.out.println(i + " " + GoodNumbers[i]);
+			if(GoodNumbers[i] && i < 100) {
+				lessThenHundred++;
+			}else if(GoodNumbers[i] && i < 1000){
+				lessThenThousand++;
+			}else if(GoodNumbers[i] && i < 10000){
+				lessThenTenThousand++;
+			}else if(GoodNumbers[i] && i < 100000){
+				lessThenHundredThousand++;
+			}else if(GoodNumbers[i] && i < 1000000){
+				lessThenMillion++;
+			}
 		}
 		
 		for(int i =1; i < GoodNumbers.length;i++) {
@@ -12,7 +28,12 @@ public class G6Testing {
 				System.out.println("Pair Located" + " " + (i-1) + " " + i);
 			}
 		}
-
+		System.out.println("frequencies");
+		System.out.println(lessThenHundred);
+		System.out.println(lessThenThousand);
+		System.out.println(lessThenTenThousand);
+		System.out.println(lessThenHundredThousand);
+		System.out.println(lessThenMillion);
 	}
 	
 	static boolean[] findGoodNumbers(int max) {
